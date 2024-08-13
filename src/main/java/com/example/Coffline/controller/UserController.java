@@ -36,7 +36,7 @@ public class UserController implements IUserApi {
 
     @PostMapping("/login")
     @Override
-    public ResponseEntity<BaseResponse<Void>> login(LoginRequest loginRequest) {
+    public ResponseEntity<BaseResponse<Void>> login(@Valid @RequestBody LoginRequest loginRequest) {
         userService.login(modelMapper.map(loginRequest, LoginModal.class));
         BaseResponse<Void> response = new BaseResponse<Void>(HttpStatus.OK.value(), messageSource.getMessage("coffline.message.loginSuccessfull", null, LocaleContextHolder.getLocale()),System.currentTimeMillis());
         return new ResponseEntity<>(response, HttpStatus.OK);
