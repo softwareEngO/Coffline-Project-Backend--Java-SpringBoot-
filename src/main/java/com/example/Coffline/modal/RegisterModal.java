@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserModal {
+public class RegisterModal {
     private String name;
 
     private String surName;

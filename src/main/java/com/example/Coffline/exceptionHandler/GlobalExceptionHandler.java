@@ -3,8 +3,8 @@ package com.example.Coffline.exceptionHandler;
 import com.example.Coffline.exception.BaseException;
 import com.example.Coffline.response.BaseResponse;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
         BaseResponse<Void> response = new BaseResponse<>(
                 HttpStatus.BAD_REQUEST.value(),
-                messageSource.getMessage("coffline.error.validation", null, Locale.getDefault()),
+                messageSource.getMessage("coffline.error.validation", null, LocaleContextHolder.getLocale()),
                 System.currentTimeMillis()
         );
         response.setErrors(errors);

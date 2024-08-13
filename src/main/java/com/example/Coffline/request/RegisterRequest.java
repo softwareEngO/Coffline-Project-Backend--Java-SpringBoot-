@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserRequest {
+public class RegisterRequest {
 
     @NotBlank(message = "Ad alanı boş olamaz")
     private String name;
